@@ -12,25 +12,32 @@
 </head>
 <body ng-app="MyApp" ng-controller="MyCtrl">
     <div ng-repeat="grade in grades">
-        <label>
-            Nota {{ $index + 1 }}
-            <input type="text" ng-model="grade.grade"/>
-        </label>
-        <a href="" ng-click="grade.grade = grade.grade+1">+</a>
-        <a href="" ng-click="grade.grade = grade.grade-1">-</a>
-        <br/>
-        <label>
-            Peso {{ $index + 1 }}
-            <input type="text" ng-model="grade.weight"/>
-        </label>
-        <a href="" ng-click="grade.weight = grade.weight+1">+</a>
-        <a href="" ng-click="grade.weight = grade.weight-1">-</a>
-        <br/>
-        <br/>
+        <fieldset>
+            <legend>
+                Nota {{ $index + 1 }}
+                <a href="" ng-click="removeGrade($index)">(Eliminar)</a>
+            </legend>
+            <label>
+                Nota
+                <input type="text" ng-model="grade.grade"/>
+            </label>
+            <a href="" ng-click="grade.grade = grade.grade+1">+</a>
+            <a href="" ng-click="grade.grade = grade.grade-1">-</a>
+            <br/>
+            <label>
+                Peso
+                <input type="text" ng-model="grade.weight"/>
+            </label>
+            <a href="" ng-click="grade.weight = grade.weight+1">+</a>
+            <a href="" ng-click="grade.weight = grade.weight-1">-</a>
+        </fieldset>
     </div>
 
-    <span>
+    <button ng-click="addGrade()">Agregar nota</button>
+    <br/><br/>
+
+    <div ng-show="grades.length > 0">
         Promedio ponderado: {{ weightedAverage(grades) | number:2}}
-    </span>
+    </div>
 </body>
 </html>

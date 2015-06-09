@@ -15,5 +15,13 @@ angular.module('MyApp', [])
                 return +grade.weight * grade.grade;
             })
             .reduce(function(a, b) {return a+b;}, 0) / weightsSum;
-    }
+    };
+
+    $scope.addGrade = function() {
+        $scope.grades.push({grade: 10.0, weight: 1.0});
+    };
+
+    $scope.removeGrade = function(index) {
+        $scope.grades.splice(index, 1);
+    };
 }]);
