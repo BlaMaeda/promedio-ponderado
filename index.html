@@ -4,10 +4,33 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title></title>
+  <title>Promedio ponderado</title>
   <style type="text/css">code{white-space: pre;}</style>
+
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
 </head>
-<body>
-Lorem ipsum
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div ng-repeat="grade in grades">
+        <label>
+            Nota {{ $index + 1 }}
+            <input type="text" ng-model="grade.grade"/>
+        </label>
+        <a href="" ng-click="grade.grade = grade.grade+1">+</a>
+        <a href="" ng-click="grade.grade = grade.grade-1">-</a>
+        <br/>
+        <label>
+            Peso {{ $index + 1 }}
+            <input type="text" ng-model="grade.weight"/>
+        </label>
+        <a href="" ng-click="grade.weight = grade.weight+1">+</a>
+        <a href="" ng-click="grade.weight = grade.weight-1">-</a>
+        <br/>
+        <br/>
+    </div>
+
+    <span>
+        Promedio ponderado: {{ weightedAverage(grades) | number:2}}
+    </span>
 </body>
 </html>
