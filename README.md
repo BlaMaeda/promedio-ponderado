@@ -1,1 +1,1 @@
-[Promedio ponderado apto para estudiantes de letras](http://blamaeda.github.io/promedio-ponderado/)
+[Promedio ponderado apto para estudiantes de letras](http://fvictorio.github.io/promedio-ponderado/)
